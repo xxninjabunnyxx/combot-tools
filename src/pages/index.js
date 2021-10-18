@@ -1,40 +1,29 @@
-import React from 'react';
-import clsx from 'clsx';
-import Layout from '@theme/Layout';
-import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import styles from './index.module.css';
-import HomepageFeatures from '../components/HomepageFeatures';
+import * as React from "react"
+import { Link } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 
-function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
-          </Link>
-        </div>
-      </div>
-    </header>
-  );
-}
+import Layout from "../components/layout"
+import Seo from "../components/seo"
 
-export default function Home() {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
-      <HomepageHeader />
-      <main>
-        <HomepageFeatures />
-      </main>
-    </Layout>
-  );
-}
+const IndexPage = () => (
+  <Layout>
+    <Seo title="Home" />
+    <h1>Hi people</h1>
+    <p>Welcome to your new Gatsby site.</p>
+    <p>Now go build something great.</p>
+    <StaticImage
+      src="../images/gatsby-astronaut.png"
+      width={300}
+      quality={95}
+      formats={["auto", "webp", "avif"]}
+      alt="A Gatsby astronaut"
+      style={{ marginBottom: `1.45rem` }}
+    />
+    <p>
+      <Link to="/page-2/">Go to page 2</Link> <br />
+      <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
+    </p>
+  </Layout>
+)
+
+export default IndexPage
